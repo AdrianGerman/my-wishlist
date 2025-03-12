@@ -33,7 +33,6 @@ export const Main = () => {
           key={index}
           className="flex flex-col items-center justify-center rounded-2xl shadow-2xl w-full h-full aspect-square overflow-hidden"
         >
-          <p className="text-3xl font-bold">{item.name}</p>
           <img
             src={item.img}
             alt={`${item.name} logo`}
