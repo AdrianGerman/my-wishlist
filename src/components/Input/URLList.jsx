@@ -1,11 +1,22 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { URLInput } from "./URLInput"
 
 export const URLList = () => {
-  const [urls, setUrls] = useState([])
+  const [urls, setUrls] = useState(() => {
+    const savedUrls = localStorage.getItem("urls")
+    return savedUrls ? JSON.parse(savedUrls) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem("urls", JSON.stringify(urls))
+  }, [urls])
 
   const addUrlToList = ({ url, title }) => {
-    setUrls((prevUrls) => [...prevUrls, { url, title }])
+    setUrls((prevUrls) => {
+      const updatedUrls = [...prevUrls, { url, title }]
+      localStorage.setItem("urls", JSON.stringify(updatedUrls))
+      return updatedUrls
+    })
   }
 
   return (
