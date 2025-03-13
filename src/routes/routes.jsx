@@ -4,6 +4,7 @@ import { Amazon } from "../pages/Amazon"
 import { MercadoLibre } from "../pages/MercadoLibre"
 import { Aliexpress } from "../pages/Aliexpress"
 import { Temu } from "../pages/Temu"
+import { Steam } from "../pages/Steam"
 import { Otros } from "../pages/Otros"
 
 export const AppRoutes = () => {
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
         <Route path="/mercado-libre" element={<MercadoLibre />} />
         <Route path="/aliexpress" element={<Aliexpress />} />
         <Route path="/temu" element={<Temu />} />
+        <Route path="/steam" element={<Steam />} />
         <Route path="/otros" element={<Otros />} />
       </Routes>
     </Router>
