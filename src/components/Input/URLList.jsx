@@ -22,10 +22,15 @@ export const URLList = () => {
   return (
     <>
       <URLInput onAddUrl={addUrlToList} />
-      <ul>
+      <ul className="space-y-2">
         {urls.map((item, index) => (
-          <li key={index}>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <li key={index} className="bg-[#282828] p-3 rounded-lg">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300"
+            >
               {item.title || item.url}
             </a>
           </li>
