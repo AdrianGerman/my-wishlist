@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 
-export const URLInput = ({ onAddUrl }) => {
+export const URLInput = ({ onAddUrl, storeId }) => {
   const [url, setUrl] = useState("")
   const [title, setTitle] = useState("")
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onAddUrl({ url, title })
+    onAddUrl({ url, title, storeId })
     setUrl("")
     setTitle("")
   }
