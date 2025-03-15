@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { URLInput } from "./URLInput"
 import { DeleteComponent } from "../DeleteComponent"
+import { EditComponent } from "../EditComponent"
 
 export const URLList = ({ storeId }) => {
   const [urls, setUrls] = useState(() => {
@@ -26,6 +27,13 @@ export const URLList = ({ storeId }) => {
     localStorage.setItem(`urls_${storeId}`, JSON.stringify(newUrls))
   }
 
+  const updateUrl = (index, title, url) => {
+    const updatedUrls = [...urls]
+    updatedUrls[index] = { ...updatedUrls[index], title, url }
+    setUrls(updatedUrls)
+    localStorage.setItem(`urls_${storeId}`, JSON.stringify(updatedUrls))
+  }
+
   return (
     <>
       <URLInput onAddUrl={addUrlToList} storeId={storeId} />
@@ -43,7 +51,15 @@ export const URLList = ({ storeId }) => {
             >
               {item.title || item.url}
             </a>
-            <DeleteComponent onDelete={removeUrl} index={index} />
+            <section>
+              <EditComponent
+                url={item.url}
+                title={item.title}
+                index={index}
+                onUpdate={updateUrl}
+              />
+              <DeleteComponent onDelete={removeUrl} index={index} />
+            </section>
           </li>
         ))}
       </ul>
