@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { URLInput } from "./URLInput"
+import { DeleteComponent } from "../DeleteComponent"
 
 export const URLList = ({ storeId }) => {
   const [urls, setUrls] = useState(() => {
@@ -19,12 +20,21 @@ export const URLList = ({ storeId }) => {
     })
   }
 
+  const removeUrl = (index) => {
+    const newUrls = urls.filter((_, idx) => idx !== index)
+    setUrls(newUrls)
+    localStorage.setItem(`urls_${storeId}`, JSON.stringify(newUrls))
+  }
+
   return (
     <>
       <URLInput onAddUrl={addUrlToList} storeId={storeId} />
       <ul className="space-y-2">
         {urls.map((item, index) => (
-          <li key={index} className="bg-[#282828] p-3 rounded-lg">
+          <li
+            key={index}
+            className="bg-[#282828] p-3 rounded-lg flex justify-between items-center"
+          >
             <a
               href={item.url}
               target="_blank"
@@ -33,6 +43,7 @@ export const URLList = ({ storeId }) => {
             >
               {item.title || item.url}
             </a>
+            <DeleteComponent onDelete={removeUrl} index={index} />
           </li>
         ))}
       </ul>
