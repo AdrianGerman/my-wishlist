@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { EditIcon } from "./icons/Edit"
 
 export const EditComponent = ({ url, title, index, onUpdate }) => {
   const [showModal, setShowModal] = useState(false)
@@ -14,9 +15,9 @@ export const EditComponent = ({ url, title, index, onUpdate }) => {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="ml-4 bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded"
+        className="ml-4 bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded cursor-pointer"
       >
-        Editar
+        <EditIcon />
       </button>
       {showModal && (
         <div className="fixed inset-0 overflow-y-auto h-full w-full flex justify-center items-center">
@@ -40,13 +41,13 @@ export const EditComponent = ({ url, title, index, onUpdate }) => {
             <div className="flex justify-end space-x-4 mt-4">
               <button
                 onClick={() => setShowModal(false)}
-                className="bg-gray-600 hover:bg-gray-800 font-bold py-2 px-4 rounded"
+                className="bg-gray-600 hover:bg-gray-800 font-bold py-2 px-4 rounded cursor-pointer"
               >
                 Cancelar
               </button>
               <button
                 onClick={handleUpdate}
-                className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded"
+                className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded cursor-pointer"
               >
                 Guardar
               </button>
