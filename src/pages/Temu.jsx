@@ -4,7 +4,7 @@ export const Temu = () => {
   return (
     <>
       <h1>Temu</h1>
-      <URLLis storeId="temu" />
+      <URLList storeId="temu" />
     </>
   )
 }
