@@ -1,6 +1,6 @@
 import React from "react"
 
-const EditProductModal = ({
+export const EditProductModal = ({
   showModal,
   onClose,
   onUpdate,
@@ -55,5 +55,3 @@ const EditProductModal = ({
     </div>
   )
 }
-
-export default EditProductModal

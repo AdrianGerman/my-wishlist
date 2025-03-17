@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import AddProductModal from "../modals/AddProductModal"
+import { AddProductModal } from "../modals/AddProductModal"
 
 export const URLInput = ({ onAddUrl, storeId }) => {
   const [url, setUrl] = useState("")

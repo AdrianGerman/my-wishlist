@@ -1,6 +1,6 @@
 import React from "react"
 
-const AddProductModal = ({
+export const AddProductModal = ({
   isOpen,
   onClose,
   onSubmit,
@@ -52,5 +52,3 @@ const AddProductModal = ({
     </div>
   )
 }
-
-export default AddProductModal

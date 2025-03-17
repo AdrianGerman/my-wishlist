@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import EditProductModal from "./modals/EditProductModal"
+import { EditProductModal } from "./modals/EditProductModal"
 import { EditIcon } from "./icons/Edit"
 
 export const EditComponent = ({ url, title, index, onUpdate }) => {
